@@ -7,7 +7,7 @@ COPY gradle ./gradle
 COPY settings.gradle build.gradle ./
 COPY src ./src
 RUN chmod +x gradlew \
-    && ./gradlew clean bootJar -x test
+    && ./gradlew clean bootJar -x test -Dorg.gradle.jvmargs='-Xmx512m -XX:MaxMetaspaceSize=256m'
 
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
@@ -16,4 +16,4 @@ ENV SPRING_PROFILES_ACTIVE=prod \
 COPY --from=builder /workspace/build/libs/*.jar app.jar
 EXPOSE 8080
 EXPOSE 5684/udp
-ENTRYPOINT ["sh","-c","java $JAVA_OPTS -jar /app/app.jar"]
+ENTRYPOINT ["sh","-c","java  -jar /app/app.jar"]
