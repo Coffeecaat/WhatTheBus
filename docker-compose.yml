@@ -1,0 +1,50 @@
+﻿version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: whatthebus-app:latest
+    env_file:
+      - ./deploy/env/app.env
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    ports:
+      - "8080:8080"
+      - "5684:5684/udp"
+    networks:
+      - app-net
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.27-alpine
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/nginx/conf.d:/etc/nginx/conf.d:ro
+      - certbot-www:/var/www/certbot
+      - letsencrypt:/etc/letsencrypt
+    networks:
+      - app-net
+    restart: unless-stopped
+
+  certbot:
+    profiles: ["certbot"]
+    image: certbot/certbot:latest
+    volumes:
+      - certbot-www:/var/www/certbot
+      - letsencrypt:/etc/letsencrypt
+    entrypoint: ["/bin/sh","-c"]
+    command: ["echo","Certbot profile ready. Use 'docker compose run certbot <args>' to issue certificates."]
+
+networks:
+  app-net:
+    driver: bridge
+
+volumes:
+  certbot-www:
+  letsencrypt:
