@@ -1,0 +1,75 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.5'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	// 테스트 컴파일/런타임 모두에서 오라클 OCI 관련 스타터/오토컨피그/코어를 제외
+	testImplementation {
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-starter-vault'
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-autoconfigure'
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-core'
+	}
+	testRuntimeOnly {
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-starter-vault'
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-autoconfigure'
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-core'
+	}
+	// (보수적으로) 실제로 테스트에 쓰이는 클래스패스에도 한 번 더
+	testCompileClasspath {
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-starter-vault'
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-autoconfigure'
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-core'
+	}
+	testRuntimeClasspath {
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-starter-vault'
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-autoconfigure'
+		exclude group: 'com.oracle.cloud.spring', module: 'spring-cloud-oci-core'
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	implementation 'com.oracle.cloud.spring:spring-cloud-oci-starter-vault:1.4.4'
+
+	implementation 'io.github.resilience4j:resilience4j-spring-boot3:2.2.0'
+	implementation 'org.springframework.integration:spring-integration-ip'
+	implementation 'org.eclipse.californium:californium-core:3.8.0'
+	implementation 'org.eclipse.californium:scandium:3.8.0'
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.12.3'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6'
+
+	runtimeOnly 'org.postgresql:postgresql'
+	runtimeOnly 'com.h2database:h2'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+	useJUnitPlatform()
+}
