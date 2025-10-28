@@ -42,3 +42,4 @@ out/
 .env.production
 *.log
 deploy/nginx/conf.d/whatthebus.conf
+deploy/*.env
