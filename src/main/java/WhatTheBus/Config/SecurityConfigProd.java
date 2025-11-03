@@ -42,7 +42,7 @@ public class SecurityConfigProd {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(java.util.List.of(allowedOrigins));
-        configuration.setAllowedMethods(java.util.List.of("GET"));
+        configuration.setAllowedMethods(java.util.List.of("GET","OPTIONS"));
         configuration.setAllowedHeaders(java.util.List.of("X-API-Key", "Content-Type"));
         configuration.setExposedHeaders(java.util.List.of("X-Result-Message"));
         configuration.setAllowCredentials(false);
