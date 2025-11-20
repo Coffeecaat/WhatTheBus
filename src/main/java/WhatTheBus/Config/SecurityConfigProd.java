@@ -20,7 +20,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Profile("prod")
 public class SecurityConfigProd {
 
-    @Value("${app.cors.allowed-origins:https://whatthebus.duckdns.org}")
+    @Value("${app.cors.allowed-origins:https://what-the-bus-web.vercel.app}")
     private String[] allowedOrigins;
 
     @Bean
@@ -31,7 +31,7 @@ public class SecurityConfigProd {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/pi/**").permitAll()
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/shuttle/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/shuttle/**","/api/bus/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults()); //추후 필요시 JWT 필터 추가
@@ -49,6 +49,7 @@ public class SecurityConfigProd {
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/api/shuttle/**", configuration);
+        source.registerCorsConfiguration("/api/bus/**", configuration);
         return source;
     }
 }
