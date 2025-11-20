@@ -1,8 +1,8 @@
 package WhatTheBus;
 
-import WhatTheBus.DTO.ReceiveLocData;
+import WhatTheBus.DTO.Shuttle.ReceiveLocData;
 import WhatTheBus.Service.RateLimitService;
-import WhatTheBus.Service.ShuttleLocationBusinessService;
+import WhatTheBus.Service.Shuttle.ShuttleLocationBusinessService;
 import WhatTheBus.Service.DtlsServerService;
 import WhatTheBus.Security.JwtService;
 import com.fasterxml.jackson.databind.ObjectMapper;
