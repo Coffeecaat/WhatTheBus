@@ -1,4 +1,4 @@
-package WhatTheBus.DTO.Response;
+package WhatTheBus.DTO.Error;
 
 public record ErrorResponse(String code, String message) {
 }
