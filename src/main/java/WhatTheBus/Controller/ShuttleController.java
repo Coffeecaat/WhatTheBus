@@ -1,8 +1,8 @@
 package WhatTheBus.Controller;
 
-import WhatTheBus.DTO.Response.ErrorResponse;
-import WhatTheBus.DTO.SendLocData;
-import WhatTheBus.Service.ShuttleLocationBusinessService;
+import WhatTheBus.DTO.Error.ErrorResponse;
+import WhatTheBus.DTO.Shuttle.SendLocData;
+import WhatTheBus.Service.Shuttle.ShuttleLocationBusinessService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

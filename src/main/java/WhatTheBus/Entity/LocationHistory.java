@@ -1,6 +1,6 @@
 package WhatTheBus.Entity;
 
-import WhatTheBus.DTO.ReceiveLocData;
+import WhatTheBus.DTO.Shuttle.ReceiveLocData;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

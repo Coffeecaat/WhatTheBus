@@ -1,11 +1,10 @@
 package WhatTheBus.Controller;
 
 import WhatTheBus.Config.SecurityConfigDev;
-import WhatTheBus.Config.SecurityConfigProd;
-import WhatTheBus.DTO.SendLocData;
+import WhatTheBus.DTO.Shuttle.SendLocData;
 import WhatTheBus.Security.JwtService;
 import WhatTheBus.Service.RateLimitService;
-import WhatTheBus.Service.ShuttleLocationBusinessService;
+import WhatTheBus.Service.Shuttle.ShuttleLocationBusinessService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

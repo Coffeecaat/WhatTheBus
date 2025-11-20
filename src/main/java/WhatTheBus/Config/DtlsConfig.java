@@ -1,7 +1,7 @@
 package WhatTheBus.Config;
 
 import WhatTheBus.Service.DtlsServerService;
-import WhatTheBus.Service.ShuttleLocationBusinessService;
+import WhatTheBus.Service.Shuttle.ShuttleLocationBusinessService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.eclipse.californium.scandium.DTLSConnector;
 import org.eclipse.californium.scandium.config.DtlsConnectorConfig;

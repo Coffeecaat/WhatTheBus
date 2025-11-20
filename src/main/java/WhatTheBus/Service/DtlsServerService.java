@@ -1,6 +1,7 @@
 package WhatTheBus.Service;
 
-import WhatTheBus.DTO.ReceiveLocData;
+import WhatTheBus.DTO.Shuttle.ReceiveLocData;
+import WhatTheBus.Service.Shuttle.ShuttleLocationBusinessService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.eclipse.californium.elements.RawData;
 import org.eclipse.californium.scandium.DTLSConnector;

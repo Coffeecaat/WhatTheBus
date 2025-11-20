@@ -1,6 +1,6 @@
-package WhatTheBus.Service;
+package WhatTheBus.Service.Shuttle;
 
-import WhatTheBus.DTO.ReceiveLocData;
+import WhatTheBus.DTO.Shuttle.ReceiveLocData;
 import WhatTheBus.Entity.LocationHistory;
 import WhatTheBus.Repository.LocationHistoryRepository;
 import jakarta.transaction.Transactional;

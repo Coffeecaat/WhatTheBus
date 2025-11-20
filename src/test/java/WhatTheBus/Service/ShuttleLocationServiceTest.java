@@ -1,8 +1,9 @@
 package WhatTheBus.Service;
 
-import WhatTheBus.DTO.ReceiveLocData;
+import WhatTheBus.DTO.Shuttle.ReceiveLocData;
 import WhatTheBus.Entity.LocationHistory;
 import WhatTheBus.Repository.LocationHistoryRepository;
+import WhatTheBus.Service.Shuttle.ShuttleLocationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;

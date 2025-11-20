@@ -1,8 +1,8 @@
 package WhatTheBus.Controller;
 
 import WhatTheBus.Config.SecurityConfigDev;
-import WhatTheBus.DTO.ReceiveLocData;
-import WhatTheBus.Service.ShuttleLocationBusinessService;
+import WhatTheBus.DTO.Shuttle.ReceiveLocData;
+import WhatTheBus.Service.Shuttle.ShuttleLocationBusinessService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;

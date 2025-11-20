@@ -1,4 +1,4 @@
-package WhatTheBus.DTO;
+package WhatTheBus.DTO.Shuttle;
 
 import lombok.Data;
 

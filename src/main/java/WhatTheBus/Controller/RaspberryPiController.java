@@ -1,7 +1,7 @@
 package WhatTheBus.Controller;
 
-import WhatTheBus.DTO.ReceiveLocData;
-import WhatTheBus.Service.ShuttleLocationBusinessService;
+import WhatTheBus.DTO.Shuttle.ReceiveLocData;
+import WhatTheBus.Service.Shuttle.ShuttleLocationBusinessService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;

@@ -1,7 +1,7 @@
-package WhatTheBus.Service;
+package WhatTheBus.Service.Shuttle;
 
-import WhatTheBus.DTO.ReceiveLocData;
-import WhatTheBus.DTO.SendLocData;
+import WhatTheBus.DTO.Shuttle.ReceiveLocData;
+import WhatTheBus.DTO.Shuttle.SendLocData;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
