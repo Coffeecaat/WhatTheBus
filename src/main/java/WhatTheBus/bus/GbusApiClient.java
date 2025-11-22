@@ -1,11 +1,13 @@
 package WhatTheBus.bus;
 
 import WhatTheBus.DTO.Bus.GbusResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+@Slf4j
 @Component
 public class GbusApiClient {
 
@@ -28,6 +30,13 @@ public class GbusApiClient {
                 .queryParam("format","json")
                 .toUriString();
 
-        return restTemplate.getForObject(url, GbusResponse.class);
+        try{
+            log.debug("[GbusApiClient] GET {}", url);
+            GbusResponse response = restTemplate.getForObject(url, GbusResponse.class);
+            return response;
+        } catch(Exception e){
+            log.error("[GbusApiClient] 정류장 stationId={} 호출 실패. url={}", stationId, url, e);
+            return null;
+        }
     }
 }
