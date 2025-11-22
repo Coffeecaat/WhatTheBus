@@ -24,7 +24,7 @@ public class GbusApiClient {
     }
 
     public GbusResponse getStationId(String stationId) {
-        String url = UriComponentsBuilder.fromHttpUrl(apiBaseUrl)
+        String url = UriComponentsBuilder.fromUriString(apiBaseUrl)
                 .queryParam("serviceKey",serviceKey)
                 .queryParam("stationId",stationId)
                 .queryParam("format","json")
