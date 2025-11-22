@@ -33,7 +33,7 @@ public class BusArrivalService {
         return busKeyPrefix + stopCode.name();
     }
 
-    @Scheduled(fixedRate = 60000L)
+    @Scheduled(fixedDelay = 40000L)
     public void stopsRefresh(){
 
         for(CampusStopCode stopCode : CampusStopCode.values()){
